@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="http://mcdw.esy.es/img/favicon.ico">
+    <title>MexicoCraft</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip({'placement': 'top', 'container': 'body'});
+            $('[data-toggle="check"]').click(function (e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                if ($(this).hasClass('active')) {
+                    $(this).children('.glyphicon').removeClass('glyphicon-remove').addClass('glyphicon-ok');
+                    $($(this).data('target')).show();
+                } else {
+                    $(this).children('.glyphicon').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                    $($(this).data('target')).hide();
+                }
+            });
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script>
+        function ping(host, sel) {
+            var ws = new WebSocket('wss://' + host + '/wsping/');
+
+            ws.onmessage = function (e) {
+                var now = Date.now();
+                $(sel).text((now - ws.sent) + 'ms');
+                setTimeout(function () {
+                    ws.sent = Date.now()
+                    ws.send('ping');
+                }, 1000);
+            }
+
+            ws.onopen = function (e) {
+                ws.sent = Date.now();
+                ws.send('ping');
+            }
+
+            ws.onerror = function (e) {
+                $(sel).text('Error');
+            }
+
+            ws.onclose = function (e) {
+                $(sel).text('Error');
+            }
+        }
+        $(function () {
+            
+                ping('kohi.eu', '#kohieu');
+            
+                ping('kohi.us', '#kohius');
+            
+                ping('kohi.net.au', '#kohinetau');
+            
+        });
+    </script>
+	
+	
+</head>
+
+
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">MexicoCraft</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+				 <li class="active">
+                        <a href="index..html">Inicio</a>
+                    </li>
+					<li>
+                        <a href="noticias.html">Noticias</a>
+                    </li>
+					<li>
+                        <a href="csp.html">Clicks por Segundo</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contacto</a>
+                    </li>
+                         <li>
+                                <a href="pricing.html">Tienda</a>
+                            </li>
+                        </ul>
+                    </li>
+					<a href="" class="btn btn-default navbar-btn navbar-right hidden-sm hidden-xs">IP:
+MC.MEXICOCRAFT.TK</a>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('http://i.imgur.com/0S8QYFI.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Entra Ahora!</h2>
+					<h3> <strong>IP: mc.mexicocraft.tk</strong> </h3>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://i.imgur.com/uxO3y4F.png');"></div>
+                <div class="carousel-caption">
+                    <h2>Suscribete a Nuestro Canal De YouTube!</h2>
+					<h3> <a href="https://www.youtube.com/c/microatom" class="btn btn-primary btn-red"><span class="glyphicon glyphicon-play"></span> Canal De YouTube</a> </h3>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://i.imgur.com/UAF42Ib.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Versiones:</h2>
+					<h3> <strong> 1.8 </strong> </h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+	    <div class="container">
+    <br>
+    <blockquote>
+	<p class="bg-primary">Estos ultimos dias estuvimos trabajando en el servidor FFA o Free For All AKA: KitPvP</p>
+        <p>
+	<p>Este servidor incluye: Rangos, Coins (o monedas), Duelos los cuales se pueden enviar con la bara de BLAZE dando click derecho al jugador con el que quieras pelear y el kit sera asignado automaticamente ,Kits creados por los administrador que incluyen abilidades, Top (Los jugadores Top), KitUnlockers, que son KitUnlockers? Los KitUnlockers te permite desblockear un kit aleatorio de un menu de kits los cuales se pueden ganar, al entrar por primera vez recibes 2 KitUnlockers y al subir de rango se te agregaran mas, tambien los puedes comprar en la tienda del servor. (PD: Los rangos no tiene acceso a nada en especifico)</p>
+    <a href="http://mcdw.esy.es/noticias.html" class="btn btn-default"><span class="glyphicon glyphicon-chevron-right"></span> Leer Mas</a>
+	</blockquote>
+    <br>
+
+    <!-- Page Content -->
+
+        <!-- Marketing Icons Section -->
+    <div class="container">
+        <div class="row">
+            
+        <!-- /.row -->
+
+        <!-- Portfolio Section -->
+		    <div class="container">
+        <div class="page-header">
+            <h1>Nuestro Staff</h1>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-2 text-center col-md-offset-4">
+                <img src="http://cravatar.eu/avatar/microatom/100.png" class="staff-img img-rounded" height="100" width="100" alt="">
+                <hr>
+                <h3>microatom<br><a href="#" class="btn btn-primary btn-default">Owner</a></h3>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="http://cravatar.eu/avatar/The_assasing_pro/100.png" class="staff-img img-rounded" height="100" width="100" alt="">
+                <hr>
+                <h3>The_assasing_pro<br><a href="#" class="btn btn-primary btn-default">Owner</a></h3>
+            </div>
+
+        </div>
+        <br>
+        <div class="row">
+
+            <div class="col-md-2 text-center col-md-offset-2">
+                <img src="http://cravatar.eu/avatar/Steve/100.png" class="staff-img img-rounded" height="100" width="100" alt="">
+                <hr>
+                <h3>??<br><a href="#" class="btn btn-primary btn-default">Admin</a></h3>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="http://cravatar.eu/avatar/MrSparragoW/100.png" class="staff-img img-rounded" height="100" width="100" alt="">
+                <hr>
+                <h3>MrSparragoW<br><a href="#" class="btn btn-primary btn-default">Admin</a></h3>
+            </div>
+			<div class="col-md-2 text-center">
+                <img src="http://cravatar.eu/avatar/ItzJGomezPvP/100.png" class="staff-img img-rounded" height="100" width="100" alt="">
+                <hr>
+                <h3>ItzJGomezPvP<br><a href="#" class="btn btn-primary btn-default">Admin</a></h3>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="http://cravatar.eu/avatar/danii15pove/100.png" class="staff-img img-rounded" height="100" width="100" alt="">
+                <hr>
+                <h3>danii15pove<br><a href="#" class="btn btn-primary btn-default">Admin</a></h3>
+            </div>
+
+        </div>
+        <br>
+        <div class="row">
+
+            <div class="col-md-2 text-center col-md-offset-1">
+                <img src="http://cravatar.eu/avatar/Steve/100.png" class="staff-img img-rounded" height="100" width="100" alt="">
+                <hr>
+                <h3>??<br><a href="#" class="btn btn-primary btn-default">Mod</a></h3>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="http://cravatar.eu/avatar/Steve/100.png" class="staff-img img-rounded" height="100" width="100" alt="">
+                <hr>
+                <h3>??<br><a href="#" class="btn btn-primary btn-default">Mod</a></h3>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="http://cravatar.eu/avatar/Steve/100.png" class="staff-img img-rounded" height="100" width="100" alt="">
+                <hr>
+                <h3>??<br><a href="#" class="btn btn-primary btn-default">Mod</a></h3>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="http://cravatar.eu/avatar/Steve/100.png" class="staff-img img-rounded" height="100" width="100" alt="">
+                <hr>
+                <h3>??<br><a href="#" class="btn btn-primary btn-default">Mod</a></h3>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="http://cravatar.eu/avatar/Steve/100.png" class="staff-img img-rounded" height="100" width="100" alt="">
+                <hr>
+                <h3>??<br><a href="#" class="btn btn-primary btn-default">Mod</a></h3>
+            </div>
+
+        </div>
+    </div>
+		
+		
+		
+        <!-- /.row -->
+
+        <!-- Footer -->
+		<div id="footer">
+  <div class="container">
+    <p class="text-muted">MexicoCraft © 2015 <a href="http://mcdw.esy.es/">MexicoCraft</a></p>
+  </div>
+</div>
+
+<ul class="nav pull-right scroll-top">
+  <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
+</ul>
+    <!-- /.container -->
+	
+	
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+</body>
+
+</html>
